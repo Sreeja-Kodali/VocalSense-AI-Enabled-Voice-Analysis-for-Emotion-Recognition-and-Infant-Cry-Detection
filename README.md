@@ -42,30 +42,6 @@ The root `app.py` creates the Flask application and loads the trained models onc
 - `templates/index.html`: the existing frontend, served by Flask without changing its UI.
 - `models/`: the three existing trained model files.
 
-## API
-
-### `GET /api/health`
-
-Returns `200` when the application is running:
-
-```json
-{"status": "success", "message": "VocalSense API is healthy"}
-```
-
-### `POST /api/predict`
-
-Send `multipart/form-data` with a WAV file in the `audio` field. A successful response includes:
-
-```json
-{
-  "status": "success",
-  "audio_type": "Human Speech",
-  "prediction": "Happy",
-  "confidence": 0.8
-}
-```
-
-Infant cry responses use `"audio_type": "Baby Cry"`. Invalid requests return a JSON `error` with an appropriate HTTP status. The existing `POST /predict` endpoint remains available for the current frontend.
 
 ## Setup and Run
 
